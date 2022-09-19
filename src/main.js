@@ -8,6 +8,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.config.productionTip = false;
 //吧ElementUI挂载到Vue上
 Vue.use(ElementUI);
+console.log("--"+process.env.VUE_APP_BASE_API);
 new Vue({
   router,
   store,
