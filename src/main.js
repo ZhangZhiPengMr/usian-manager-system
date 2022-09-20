@@ -10,7 +10,7 @@ Vue.config.productionTip = false;
 //吧ElementUI挂载到Vue上
 Vue.use(ElementUI);
 Vue.prototype.$axios = axios
-// console.log("--" + process.env.VUE_APP_BASE_API);
+console.log("--" + process.env.VUE_APP_BASE_API);
 new Vue({
   router,
   store,

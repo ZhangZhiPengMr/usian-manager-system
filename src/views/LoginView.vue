@@ -74,7 +74,7 @@ export default {
                 });
                 //存储token
                 sessionStorage.setItem("token", res.data.data.token);
-                this.$router.push("/home");
+                this.$router.push("/about");
               } else {
                 this.$message({
                   type: "error", // success error warning
