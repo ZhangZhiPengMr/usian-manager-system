@@ -11,44 +11,20 @@ const routes = [
   {
     path: "/login",
     name: "login",
-    component: () => import("../views/LoginView.vue"),
-  },
-  {
-    path: "/home",
-    name: "home",
-    component: () => import("../views/HomeView.vue"),
-    children: [
-      {
-        path: "/about",
-        name: "about",
-        component: () => import("../views/AboutView.vue"),
-      },
-      {
-        path: "/member",
-        name: "member",
-        component: () => import("../views/MemberView.vue"),
-      },
-      {
-        path: "/supplier",
-        name: "supplier",
-        component: () => import("../views/SupplierView.vue"),
-      },
-      {
-        path: "/goods",
-        name: "goods",
-        component: () => import("../views/goods.vue"),
-      },
-      {
-        path: "/staff",
-        name: "staff",
-        component: () => import("../views/staff.vue"),
-      },
-    ]
+    component: () => import("../views/login"),
   },
 ];
 
 const router = new VueRouter({
   routes,
 });
+// 挂载路由守卫
+// router.beforeEach((to, from, next) => {
+//   // to and from are both route objects. must call `next`.
+//   if (to.path === '/login') return next()
+//   const tokenStr = window.sessionStorage.getItem('token')
+//   if (!tokenStr) return next('/login')
+//   next()
+// })
 
 export default router;
