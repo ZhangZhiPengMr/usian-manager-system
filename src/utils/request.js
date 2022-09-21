@@ -2,7 +2,7 @@
 import axios from 'axios'
 import { _ } from 'core-js'
 import { Message } from 'element-ui'
-
+import store from '../store/index'
 
 const excepotionMessage = {
     1000: '用户名或密码发送错误',
@@ -16,6 +16,8 @@ const serveice = axios.create({
 })
 
 serveice.interceptors.request.use(function (config) {
+    const token = store.getters.token
+    if (token) config.headers.authorization = "Bearer " + token
     // 在发送请求之前做些什么
     return config
 }, function (error) {
@@ -25,7 +27,6 @@ serveice.interceptors.request.use(function (config) {
 
 serveice.interceptors.response.use(
     function (response) {
-        console.log(response)
         if (response.status < 400) {
 
             return response.data.data

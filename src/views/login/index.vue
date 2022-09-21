@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { login } from "../../api/user";
+import { login, getUser } from "../../api/user";
 export default {
   name: "",
   components: {},
@@ -63,12 +63,22 @@ export default {
     },
     //登录方法
     async handleLogin() {
-      try {
-        const res = await login(this.loginForm);
-        console.log(res.token);
-      } catch (error) {
-        console.log(error.message);
-      }
+      const token = await this.$store.dispatch("login", this.loginForm);
+      if (!token) return;
+      const userInfo = await this.$store.dispatch("user");
+      if (!userInfo) return;
+      this.$message.success("登录成功");
+      this.$router.push("/homepage");
+
+      // // 登录接口
+      // const res = await login(this.loginForm);
+      // this.$store.dispatch("DIS_SET_TOKEN", res.token);
+      // // 用户信息接口
+      // const user = await getUser();
+      // this.$store.dispatch("DIS_SET_USER_INFO", user);
+      // 登录成功跳转首页并且提示信息
+      // this.$message.success("登录成功");
+      // this.$router.push("/homepage");
     },
   },
 };
