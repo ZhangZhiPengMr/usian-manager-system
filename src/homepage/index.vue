@@ -1,59 +1,45 @@
 <template>
-  <div>
+  <div class="homePage">
     <el-container>
-      <el-header>Header</el-header>
+      <el-header>
+        <app-header></app-header>
+      </el-header>
       <el-container>
         <el-aside width="230px">
-          <el-menu
-            default-active="1"
-            background-color="#545c64"
-            text-color="#fff"
-            active-text-color="#ffd04b"
-          >
-            <el-menu-item index="1">
-              <i class="el-icon-menu"></i>
-              <span slot="title">首页</span>
-            </el-menu-item>
-            <el-menu-item index="2">
-              <i class="el-icon-setting"></i>
-              <span slot="title">会员管理</span>
-            </el-menu-item>
-            <el-menu-item index="3">
-              <i class="el-icon-setting"></i>
-              <span slot="title">供应商管理</span>
-            </el-menu-item>
-            <el-menu-item index="4">
-              <i class="el-icon-setting"></i>
-              <span slot="title">商品管理</span>
-            </el-menu-item>
-            <el-menu-item index="5">
-              <i class="el-icon-setting"></i>
-              <span slot="title">员工管理</span>
-            </el-menu-item>
-          </el-menu>
+          <AppAside></AppAside>
         </el-aside>
-        <el-main>Main</el-main>
+        <el-main>
+          <AppMain></AppMain>
+        </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 
 <script>
+import AppHeader from "./AppHeader";
+import AppAside from "./AppAside";
+import AppMain from "./AppMain";
+
 export default {
-  name: "",
-  components: {},
-  data() {
-    return {};
+  name: "homepage",
+  components: {
+    AppHeader,
+    AppAside,
+    AppMain,
   },
-  created() {},
-  mounted() {},
-  methods: {},
 };
 </script>
 <style scoped lang="scss">
+.homePage {
+  height: 100%;
+  width: 100%;
+}
+
 .el-header {
   background-color: #2d3a4b;
   color: #fff;
+  height: 50px !important;
   line-height: 50px !important;
   padding: 0;
 }
@@ -61,14 +47,15 @@ export default {
 .el-aside {
   background-color: #d3dce6;
   color: #333;
-  text-align: center;
-  line-height: 200px;
+  height: 100%;
+}
+
+.el-container {
+  height: 100%;
 }
 
 .el-main {
   background-color: #e9eef3;
   color: #333;
-  text-align: center;
-  line-height: 160px;
 }
 </style>

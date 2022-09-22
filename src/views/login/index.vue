@@ -1,7 +1,7 @@
 <template>
   <div class="login-box">
     <div class="loginFrom">
-      <h2>积云后台管理系统</h2>
+      <span> 积云后台管理系统 </span>
       <el-form
         ref="loginForm"
         :model="loginForm"
@@ -68,7 +68,7 @@ export default {
       const userInfo = await this.$store.dispatch("user");
       if (!userInfo) return;
       this.$message.success("登录成功");
-      this.$router.push("/homepage");
+      this.$router.push("/home");
 
       // // 登录接口
       // const res = await login(this.loginForm);
