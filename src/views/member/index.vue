@@ -1,5 +1,5 @@
 <template>
-  <div>member</div>
+  <div class="mt_2">member</div>
 </template>
 
 <script>
