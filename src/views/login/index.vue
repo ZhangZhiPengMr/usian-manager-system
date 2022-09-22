@@ -91,9 +91,9 @@ export default {
   overflow: hidden;
 }
 .loginFrom {
-  width: 350px;
+  width: 450px;
   background-color: rgba(255, 255, 255, 0.8);
-  margin: 160px auto;
+  margin: 300px auto;
   border-radius: 20px;
   padding: 28px;
 }
