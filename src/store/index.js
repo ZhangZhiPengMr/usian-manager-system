@@ -51,7 +51,9 @@ export default new Vuex.Store({
     //用户退出账号接口
     async Logout({ commit }) {
       const response = await logout()
-      removeTokenAddUserInfo()
+      commit("SET_TOKEN", "")
+      // removeTokenAddUserInfo()
+      commit("SET_USER_INFO", "")
       return response
     }
 

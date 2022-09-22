@@ -48,9 +48,7 @@ export default {
     async handleLogout() {
       try {
         const response = await this.$store.dispatch("Logout");
-        setTimeout(() => {
-          this.$router.push("/login");
-        }, 100);
+        this.$router.push("/login");
         this.$message.success("退出成功");
       } catch (e) {
         console.log(e.message);

@@ -28,6 +28,16 @@ export default {
     AppAside,
     AppMain,
   },
+  watch:{
+    $route:{
+      handler(){
+        let info=localStorage.getItem('user')
+        if(info==null){
+          this.$store.dispatch('user')
+        }
+      }
+    }
+  }
 };
 </script>
 <style scoped lang="scss">

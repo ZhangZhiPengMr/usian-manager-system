@@ -6,6 +6,8 @@ import axios from "axios"
 //引入全局样式
 import "./style/reset.css"
 import "./style/common.css"
+//鉴权
+import "./authentication"
 //引入ElementUI组件
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';

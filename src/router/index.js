@@ -9,7 +9,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    redirect: '/homepage',  // 重定向:重新指向其它path,会改变网址
+    redirect: '/home',  // 重定向:重新指向其它path,会改变网址
   },
   {
     path: "/login",
