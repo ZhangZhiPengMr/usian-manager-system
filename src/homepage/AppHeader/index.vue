@@ -10,7 +10,8 @@
     </router-link>
     <el-dropdown @command="handleCommand">
       <span class="el-dropdown-link">
-        下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+        {{ $store.getters.userInfo.name
+        }}<i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item icon="el-icon-edit" command="changePassWord"
@@ -44,8 +45,16 @@ export default {
       alert("修改密码");
     },
     // 退出登录
-    handleLogout() {
-      alert("退出登录");
+    async handleLogout() {
+      try {
+        const response = await this.$store.dispatch("Logout");
+        setTimeout(() => {
+          this.$router.push("/login");
+        }, 100);
+        this.$message.success("退出成功");
+      } catch (e) {
+        console.log(e.message);
+      }
     },
   },
 };

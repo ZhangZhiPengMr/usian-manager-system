@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { login, getUser } from "../api/user"
-import { setToken, getToken, setUserInfo, getUserInfo } from '../utils/auth'
+import { login, getUser, logout } from "../api/user"
+import { setToken, getToken, setUserInfo, getUserInfo, removeTokenAddUserInfo } from '../utils/auth'
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -47,6 +47,12 @@ export default new Vuex.Store({
       } catch (error) {
         console.log(error.message);
       }
+    },
+    //用户退出账号接口
+    async Logout({ commit }) {
+      const response = await logout()
+      removeTokenAddUserInfo()
+      return response
     }
 
 
