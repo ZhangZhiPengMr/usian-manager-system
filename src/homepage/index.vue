@@ -65,7 +65,7 @@ export default {
 }
 
 .el-main {
-  background-color: #e9eef3;
+  background-color: #fff;
   color: #333;
 }
 </style>
