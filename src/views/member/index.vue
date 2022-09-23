@@ -1,19 +1,24 @@
 <template>
   <div class="mt_2">
-    <el-form :inline="true" :model="memberQueryParams" class="demo-form-inline">
-      <el-form-item>
+    <el-form
+      :inline="true"
+      ref="queryForm"
+      :model="memberQueryParams"
+      class="demo-form-inline"
+    >
+      <el-form-item prop="cardNum">
         <el-input
           v-model="memberQueryParams.cardNum"
           placeholder="会员卡号"
         ></el-input>
       </el-form-item>
-      <el-form-item>
+      <el-form-item prop="name">
         <el-input
           v-model="memberQueryParams.name"
           placeholder="会员名字"
         ></el-input>
       </el-form-item>
-      <el-form-item>
+      <el-form-item prop="payType">
         <el-select
           v-model="memberQueryParams.payType"
           placeholder="支付类型"
@@ -27,7 +32,7 @@
           ></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item>
+      <el-form-item prop="birthday">
         <el-date-picker
           value-format="yyyy-MM-dd"
           v-model="memberQueryParams.birthday"
@@ -40,7 +45,7 @@
       <el-form-item>
         <el-button type="primary" @click="searchQuery">查询</el-button>
         <el-button type="primary">新增</el-button>
-        <el-button>重置</el-button>
+        <el-button @click="Reset('queryForm')">重置</el-button>
       </el-form-item>
     </el-form>
     <el-table :data="memberList" border style="width: 100%" height="700">
@@ -136,6 +141,10 @@ export default {
     searchQuery() {
       this.currentPage = 1;
       this.getMemberList();
+    },
+    //重置表单
+    Reset(queryForm) {
+      this.$refs[queryForm].resetFields();
     },
   },
   created() {
