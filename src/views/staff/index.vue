@@ -35,7 +35,7 @@
           <el-button size="mini" @click="openDialog(scope.row.id)"
             >编辑</el-button
           >
-          <el-button size="mini" type="danger" @click="delMember(scope.row.id)"
+          <el-button size="mini" type="danger" @click="delStaff(scope.row.id)"
             >删除</el-button
           >
         </template>
@@ -215,7 +215,7 @@ export default {
       });
     },
     //删除单个按钮
-    delMember(id) {
+    delStaff(id) {
       this.$confirm("确认删除这条记录吗?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
