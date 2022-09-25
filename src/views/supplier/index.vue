@@ -150,7 +150,7 @@ export default {
     };
   },
   methods: {
-    //获取会员列表的数据
+    //获取供应商列表的数据
     async getSupplierList() {
       try {
         const response = await SupplierApi.supplierList(
@@ -230,7 +230,7 @@ export default {
           });
         });
     },
-    //会员添加
+    //供应商添加
     async handleAddSupplier() {
       try {
         const response = await SupplierApi.addSupplier(this.dialogFormParams);
@@ -251,7 +251,7 @@ export default {
         console.log(error.message);
       }
     },
-    //会员编辑
+    //供应商编辑
     async handleEdidSupplier() {
       try {
         const response = await SupplierApi.editSupplier(
